@@ -1,0 +1,33 @@
+﻿<Window x:Class="VremenskaPrognoza.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
+        xmlns:local="clr-namespace:VremenskaPrognoza"
+        xmlns:userControls="clr-namespace:VremenskaPrognoza.UI.UserControls"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="450"
+        Width="800"
+        WindowStyle="None"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        Background="#191B1F">
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0"/>
+    </WindowChrome.WindowChrome>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <userControls:CustomWindowMenu x:Name="customMenu"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <userControls:GeneralInfo/>
+        </Grid>
+    </Grid>
+</Window>
