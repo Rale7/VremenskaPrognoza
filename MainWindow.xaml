@@ -7,14 +7,30 @@
         xmlns:userControls="clr-namespace:VremenskaPrognoza.UI.UserControls"
         mc:Ignorable="d"
         Title="MainWindow"
-        Height="450"
-        Width="800"
+        Height="500"
+        Width="1000"
         WindowStyle="None"
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Background="#191B1F">
     <WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0"/>
     </WindowChrome.WindowChrome>
+    <Window.Resources>
+        <Style TargetType="Border">
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#2d3139"/>
+            <Setter Property="Margin" Value="20"/>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#2b4558" Offset="0.0" />
+                        <GradientStop Color="#2d3139" Offset="1.0" />
+                    </RadialGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
@@ -26,8 +42,9 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
-
-            <userControls:GeneralInfo/>
+            <Border>
+                <userControls:GeneralInfo/>
+            </Border>
         </Grid>
     </Grid>
 </Window>

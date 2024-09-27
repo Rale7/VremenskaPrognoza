@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VremenskaPrognoza.ViewModel;
 
 namespace VremenskaPrognoza.UI.UserControls
 {
@@ -23,6 +24,8 @@ namespace VremenskaPrognoza.UI.UserControls
         public GeneralInfo()
         {
             InitializeComponent();
+            GeneralInfoModelView gimv = new GeneralInfoModelView();
+            DataContext = gimv;
         }
     }
 }
