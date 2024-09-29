@@ -3,11 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:VremenskaPrognoza.UI.UserControls"
+             xmlns:local="clr-namespace:VremenskaPrognoza.UI.UserControls" 
+             xmlns:mvvm="clr-namespace:VremenskaPrognoza.MVVM"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              Margin="20">
     <UserControl.Resources>
+        <mvvm:UrlToImageSourceConverter x:Key="UrlToImageSourceConverter" />
         <Style TargetType="TextBlock">
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontFamily" Value="Verdana"/>
@@ -24,10 +26,16 @@
             <RowDefinition Height="20*"/>
         </Grid.RowDefinitions>
         <Image Width="100" HorizontalAlignment="Left"
-                Source="{Binding MyGeneralInfo.Icon}"/>
-        <TextBlock Grid.Row="1" Text="{Binding MyGeneralInfo.Temperature}" FontSize="40"/>
-        <TextBlock Grid.Row="2" Text="{Binding MyGeneralInfo.Condition}" FontSize="16"/>
-        <TextBlock Grid.Row="3" Text="{Binding MyDateLocation.CurrentLocation, StringFormat='🏠︎ {0}'}"/>
-        <TextBlock Grid.Row="4" Text="{Binding MyDateLocation.CurrentDateTime, StringFormat='🗓 {0}'}"/>
+                Source="{Binding Response.CurrentWeather.CurrentCondition.Icon}"/>
+        <TextBlock Grid.Row="1" 
+                   Text="{Binding Response.CurrentWeather.CelsiusTemperature}" 
+                   FontSize="40"/>
+        <TextBlock Grid.Row="2" 
+                   Text="{Binding Response.CurrentWeather.CurrentCondition.Text}" 
+                   FontSize="16"/>
+        <TextBlock Grid.Row="3" 
+                   Text="🏠︎ Belgrade"/>
+        <TextBlock Grid.Row="4" 
+                   Text="{Binding Response.Location.Localtime, StringFormat='🗓 {0}'}"/>
     </Grid>
 </UserControl>
