@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using VremenskaPrognoza.APICalling;
 using VremenskaPrognoza.ViewModel;
 
-namespace VremenskaPrognoza.UI.UserControls
+namespace VremenskaPrognoza.View.UserControls
 {
     /// <summary>
     /// Interaction logic for GeneralInfo.xaml

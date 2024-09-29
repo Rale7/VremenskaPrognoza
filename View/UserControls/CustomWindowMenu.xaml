@@ -1,11 +1,11 @@
-﻿<UserControl x:Class="VremenskaPrognoza.UI.UserControls.CustomWindowMenu"
+﻿<UserControl x:Class="VremenskaPrognoza.View.UserControls.CustomWindowMenu"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:VremenskaPrognoza.UI.UserControls"
+             xmlns:local="clr-namespace:VremenskaPrognoza.View.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="20" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <Style TargetType="{x:Type Button}">
             <Setter Property="Background" Value="#191B1F"/>
@@ -48,6 +48,6 @@
                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
             </Button>
 
-        </StackPanel> 
+        </StackPanel>
     </Grid>
 </UserControl>

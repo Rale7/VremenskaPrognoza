@@ -10,7 +10,7 @@ namespace VremenskaPrognoza.APICalling
     internal class MinutChangeWatcher
     {
         private DateTime lastMinute;
-        public readonly Func<Task> taskToRun;
+        private readonly Func<Task> taskToRun;
         private Thread thread;
         
         public MinutChangeWatcher(Func<Task> taskToRun) {            

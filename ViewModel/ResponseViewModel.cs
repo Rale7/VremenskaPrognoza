@@ -10,7 +10,11 @@ using VremenskaPrognoza.MVVM;
 namespace VremenskaPrognoza.ViewModel
 {
     public class ResponseViewModel : ViewModelBase
-    {
+    {        
+        public delegate void AdditionalChangeAction();
+
+        public AdditionalChangeAction AdditionalAction { get; set; }
+
         private Response response;
 
         public Response Response { 
@@ -22,6 +26,7 @@ namespace VremenskaPrognoza.ViewModel
             { 
                 response = value;                
                 OnPropertyChanged();
+                Application.Current.Dispatcher.Invoke(() => AdditionalAction());
             } 
         }
     }
