@@ -69,7 +69,9 @@
                 </Border>
                 <Border Grid.Row="2"></Border>
                 <Border Grid.Row="2" Grid.Column="2"></Border>
-                <Border Grid.Row="2" Grid.Column="4"></Border>
+                <Border Grid.Row="2" Grid.Column="4">
+                    <userControls:MoonControl/>
+                </Border>
             </Grid>
         </Grid>
     </Grid>

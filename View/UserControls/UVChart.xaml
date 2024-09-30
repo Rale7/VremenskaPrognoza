@@ -36,9 +36,11 @@
               x:Name="scaleCircleGlow">
             </Path>
         </Canvas>
-        <TextBlock Text="{Binding RealtimeResponse.CurrentWeather.UvIndex}" 
-                   Grid.Row="2" 
+        <TextBlock Grid.Row="2" 
                    FontSize="30" 
-                   HorizontalAlignment="Center"/>
+                   HorizontalAlignment="Center">
+            <Run Text="{Binding RealtimeResponse.CurrentWeather.UvIndex}"/>
+            <Run Text="UV" FontSize="15" Foreground="Gray"/>
+        </TextBlock>
     </Grid>
 </UserControl>

@@ -22,7 +22,7 @@ namespace VremenskaPrognoza.Model
         [XmlElement("moonset")]
         public String Moonset { get; set; }
 
-        [XmlElement("moonphase")]
+        [XmlElement("moon_phase")]
         public String Moonphase { get; set; }
 
         [XmlElement("moon_illumination")]
