@@ -40,7 +40,7 @@ namespace VremenskaPrognoza.View.UserControls
             InitializeComponent();
             rvm = VMFactory.Instance.Rvm;
             DataContext = rvm;
-            rvm.AdditionalAction += DrawWindCompas;
+            rvm.AdditionalRealtimeAction += DrawWindCompas;
         }
 
         public void DrawWindCompas()
@@ -60,7 +60,7 @@ namespace VremenskaPrognoza.View.UserControls
 
             try
             {
-                windDegree = rvm.Response.CurrentWeather.WindDegree;
+                windDegree = rvm.RealtimeResponse.CurrentWeather.WindDegree;
             } catch(NullReferenceException ex)
             {
                 windDegree = 0;

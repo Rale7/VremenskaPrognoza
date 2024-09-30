@@ -13,21 +13,39 @@ namespace VremenskaPrognoza.ViewModel
     {        
         public delegate void AdditionalChangeAction();
 
-        public AdditionalChangeAction AdditionalAction { get; set; }
+        public AdditionalChangeAction AdditionalRealtimeAction { get; set; }
 
-        private Response response;
+        public AdditionalChangeAction AdditionalAstronomyAction { get; set; }
 
-        public Response Response { 
+        private RealtimeResponse realtimeResponse;
+
+        public RealtimeResponse RealtimeResponse { 
             get 
             { 
-                return response; 
+                return realtimeResponse; 
             } 
             set 
             { 
-                response = value;                
+                realtimeResponse = value;                
                 OnPropertyChanged();
-                Application.Current.Dispatcher.Invoke(() => AdditionalAction());
+                Application.Current.Dispatcher.Invoke(() => AdditionalRealtimeAction());
             } 
+        }
+
+        private AstronomyResponse astronomyResponse;
+
+        public AstronomyResponse AstronomyResponse
+        {
+            get
+            {
+                return astronomyResponse;
+            }
+            set
+            {
+                astronomyResponse = value;
+                OnPropertyChanged();
+                Application.Current.Dispatcher.Invoke(() => AdditionalAstronomyAction());
+            }
         }
     }
 }

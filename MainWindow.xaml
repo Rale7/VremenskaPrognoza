@@ -64,7 +64,9 @@
                 <Border Grid.Column="2">
                     <userControls:UVChart/>
                 </Border>
-                <Border Grid.Column="4"></Border>
+                <Border Grid.Column="4">
+                    <userControls:SunControl/>
+                </Border>
                 <Border Grid.Row="2"></Border>
                 <Border Grid.Row="2" Grid.Column="2"></Border>
                 <Border Grid.Row="2" Grid.Column="4"></Border>

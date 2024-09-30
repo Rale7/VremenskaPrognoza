@@ -25,7 +25,8 @@ namespace VremenskaPrognoza.APICalling
 
         private String apiKey;
 
-        private XmlSerializer serializer = new XmlSerializer(typeof(Response));
+        private XmlSerializer realtimeSerializer = new XmlSerializer(typeof(RealtimeResponse));
+        private XmlSerializer astronomySerializer = new XmlSerializer(typeof(AstronomyResponse));
 
         private ResponseViewModel rvm = new ResponseViewModel();
 
@@ -51,9 +52,12 @@ namespace VremenskaPrognoza.APICalling
         {
             try
             {
-                String response = await 
-                    ApiClient.SendGetRequestAsync(apiKey, "Belgrade", "en");
-                updateWeatherState(response);
+                String response = await ApiClient.SendGetRequestAsync
+                    (ApiClient.BaseRealtimeUrl, apiKey, "Belgrade", "en");
+                updateRealtimeWeatherState(response);
+                response = await ApiClient.SendGetRequestAsync
+                    (ApiClient.BaseAstronomyUrl, apiKey, "Belgrade", "en");
+                updateAstronomyState(response);
             }
             catch (HttpRequestException ex)
             {
@@ -61,14 +65,32 @@ namespace VremenskaPrognoza.APICalling
             }
         }
 
-        private void updateWeatherState(String xmlResponse)
+        private void updateRealtimeWeatherState(String xmlResponse)
         {
             using (StringReader reader = new StringReader(xmlResponse))
             {
                 try
                 {                    
-                    Response result = (Response)serializer.Deserialize(reader);
-                    Rvm.Response = result;
+                    RealtimeResponse result = (RealtimeResponse)
+                        realtimeSerializer.Deserialize(reader);
+                    Rvm.RealtimeResponse = result;
+                }
+                catch (InvalidOperationException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void updateAstronomyState(String xmlResponse) 
+        {
+            using (StringReader reader = new StringReader(xmlResponse))
+            {
+                try
+                {
+                    AstronomyResponse result = (AstronomyResponse)
+                        astronomySerializer.Deserialize(reader);
+                    Rvm.AstronomyResponse = result;
                 }
                 catch (InvalidOperationException ex)
                 {

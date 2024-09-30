@@ -10,7 +10,8 @@ namespace VremenskaPrognoza.APICalling
         private const String APIKEY = "key";
         private const String LOCATION = "q";
         private const String LANGUAGE = "lang";        
-        private const String BaseUrl = "http://api.weatherapi.com/v1/current.xml";
+        public const String BaseRealtimeUrl = "http://api.weatherapi.com/v1/current.xml";
+        public const String BaseAstronomyUrl = "http://api.weatherapi.com/v1/astronomy.xml";
 
         static ApiClient() 
         {
@@ -21,10 +22,10 @@ namespace VremenskaPrognoza.APICalling
             }; 
         }
 
-        public static async Task<String> SendGetRequestAsync(String key, String location, String lang)
+        public static async Task<String> SendGetRequestAsync(String url, String key, String location, String lang)
         {
             // creating URL with parameters
-            var builder = new UriBuilder(BaseUrl);
+            var builder = new UriBuilder(url);
             var query = HttpUtility.ParseQueryString(builder.ToString());
             query[APIKEY] = key;
             query[LOCATION] = location;
@@ -38,6 +39,6 @@ namespace VremenskaPrognoza.APICalling
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
             return responseBody;
-        }
+        }        
     }
 }

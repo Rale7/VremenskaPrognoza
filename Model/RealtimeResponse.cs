@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 namespace VremenskaPrognoza.Model
 {
     [XmlRoot("root")]
-    public class Response
+    public class RealtimeResponse
     {
         [XmlElement("location")]
         public Location Location { get; set; }
