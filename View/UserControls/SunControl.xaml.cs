@@ -26,6 +26,9 @@ namespace VremenskaPrognoza.View.UserControls
         private ResponseViewModel rvm;
         private CanvasPainter hcp;
 
+        private Brush sunColor = new SolidColorBrush(Color.FromRgb(255, 223, 34));
+        private Brush outlineSunColor = new SolidColorBrush(Color.FromArgb(100, 255, 223, 34));
+
         public SunControl()
         {
             InitializeComponent();
@@ -33,6 +36,7 @@ namespace VremenskaPrognoza.View.UserControls
             DataContext = rvm;
             rvm.AdditionalAstronomyAction += DrawSunGraph;
             hcp = new CanvasPainter(sunGraph);
+            
         }
 
         public void DrawSunGraph()
@@ -55,8 +59,9 @@ namespace VremenskaPrognoza.View.UserControls
                     double percentage = 100.0 * ((double)
                         (currentDuration.TotalSeconds / dayDuration.TotalSeconds));
 
-                    hcp.DrawHalfCircle(1, Brushes.Yellow, percentage);
-                    DrawSun(percentage);
+                    hcp.DrawHalfCircle(1, sunColor, percentage);
+                    DrawSun(percentage, sunColor);
+                    DrawSun(percentage, outlineSunColor, 0.13);
                 }
             }
             catch (NullReferenceException) 
@@ -65,16 +70,16 @@ namespace VremenskaPrognoza.View.UserControls
             }
         }
 
-        private void DrawSun(double percentage)
+        private void DrawSun(double percentage, Brush color, double scaleRadius = 0.1)
         {
             double angle = Math.PI * percentage / 100;
 
             double circleX = hcp.CenterX - Math.Cos(angle) * hcp.Radius;
             double circleY = hcp.CenterY - Math.Sin(angle) * hcp.Radius;
 
-            double circleRadius = hcp.Radius * 0.1;
+            double circleRadius = hcp.Radius * scaleRadius;
 
-            hcp.DrawCircle(circleX, circleY, circleRadius, Brushes.Yellow, Brushes.Transparent);
+            hcp.DrawCircle(circleX, circleY, circleRadius, color, Brushes.Transparent);
         }
 
         private void sunGraph_SizeChanged(object sender, SizeChangedEventArgs e)

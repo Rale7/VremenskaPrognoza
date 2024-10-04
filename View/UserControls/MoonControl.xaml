@@ -26,23 +26,23 @@
                 <ColumnDefinition Width="50*"/>
                 <ColumnDefinition Width="25*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock HorizontalAlignment="Left" FontSize="15">
+            <TextBlock HorizontalAlignment="Left" FontSize="10">
                 <Run Text="Moonrise"/>
                 <LineBreak/>
                 <Run Text="{Binding AstronomyResponse.Astronomy.Astro.Moonrise}" 
-                     FontSize="17"
+                     FontSize="12"
                      FontWeight="Bold"/>
             </TextBlock>
             <Canvas x:Name="moonCanvas" Grid.Column="1" SizeChanged="moonCanvas_SizeChanged"/>
-            <TextBlock HorizontalAlignment="Right" Grid.Column="2" FontSize="15">
+            <TextBlock HorizontalAlignment="Right" Grid.Column="2" FontSize="10">
                 <Run Text="Moonset"/>
                 <LineBreak/>
                 <Run Text="{Binding AstronomyResponse.Astronomy.Astro.Moonset}" 
-                     FontSize="17"
+                     FontSize="12"
                      FontWeight="Bold"/>
             </TextBlock>
         </Grid>
-        <TextBlock FontSize="35" Grid.Row="2"
+        <TextBlock FontSize="25" Grid.Row="2"
                    HorizontalAlignment="Center"
                    Text="{Binding AstronomyResponse.Astronomy.Astro.Moonphase}"/>
     </Grid>

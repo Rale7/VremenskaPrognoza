@@ -7,8 +7,8 @@
         xmlns:userControls="clr-namespace:VremenskaPrognoza.View.UserControls"
         mc:Ignorable="d"
         Title="MainWindow"
-        Height="800"
-        Width="1700"
+        Height="600"
+        Width="1200"
         WindowStyle="None"
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Background="#191B1F">
@@ -68,7 +68,9 @@
                     <userControls:SunControl/>
                 </Border>
                 <Border Grid.Row="2"></Border>
-                <Border Grid.Row="2" Grid.Column="2"></Border>
+                <Border Grid.Row="2" Grid.Column="2">
+                    <userControls:HumidityControl/>
+                </Border>
                 <Border Grid.Row="2" Grid.Column="4">
                     <userControls:MoonControl/>
                 </Border>

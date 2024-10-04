@@ -23,11 +23,11 @@
         <TextBlock Text="Wind status" FontSize="20"/>
         <Canvas Grid.Row="1" x:Name="windCompas" SizeChanged="windCompas_SizeChanged"></Canvas>
         <TextBlock Grid.Row="2">
-            <Run Text="{Binding RealtimeResponse.CurrentWeather.WindSpeedKilometer}" FontSize="30"/>
-            <Run Text="km/h" FontSize="15" Foreground="Gray"/>
+            <Run Text="{Binding RealtimeResponse.CurrentWeather.WindSpeedKilometer}" FontSize="26"/>
+            <Run Text="km/h" FontSize="14" Foreground="Gray"/>
         </TextBlock>
         <TextBlock Grid.Row="2" HorizontalAlignment="Right">            
-            <Run Text="{Binding RealtimeResponse.CurrentWeather.WindDirection}" FontSize="30"/>
+            <Run Text="{Binding RealtimeResponse.CurrentWeather.WindDirection}" FontSize="26"/>
         </TextBlock>
     </Grid>
 </UserControl>

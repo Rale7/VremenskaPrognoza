@@ -45,6 +45,7 @@ namespace VremenskaPrognoza.View.UserControls
 
         public void DrawMoon()
         {
+            moonCanvas.Children.Clear();
             try
             {
                 double percentage = rvm.AstronomyResponse.Astronomy.Astro.MoonIllumination;
