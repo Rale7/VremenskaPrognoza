@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow"
         Height="600"
-        Width="1200"
+        Width="1250"
         WindowStyle="None"
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Background="#191B1F">

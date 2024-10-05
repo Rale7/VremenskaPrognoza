@@ -18,25 +18,27 @@
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
             <RowDefinition Height="40*"/>
             <RowDefinition Height="20*"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="5*"/>
             <RowDefinition Height="5*"/>
-            <RowDefinition Height="20*"/>
+            <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
-        <Image Width="100" HorizontalAlignment="Left"
+        <local:ChangeLocation/>
+        <Image Grid.Row="1" Width="100" HorizontalAlignment="Left"
                 Source="{Binding RealtimeResponse.CurrentWeather.CurrentCondition.Icon}"/>
-        <TextBlock Grid.Row="1" FontSize="40">
+        <TextBlock Grid.Row="2" FontSize="40">
             <Run Text="{Binding RealtimeResponse.CurrentWeather.CelsiusTemperature}"/>
             <Run Text="°C" BaselineAlignment="Top"/>
         </TextBlock>
-        <TextBlock Grid.Row="2" 
+        <TextBlock Grid.Row="3" 
                    Text="{Binding RealtimeResponse.CurrentWeather.CurrentCondition.Text}" 
                    FontSize="16"/>
-        <TextBlock Grid.Row="3" 
-                   Text="🏠︎ Belgrade"/>
         <TextBlock Grid.Row="4" 
+                   Text="{Binding RealtimeResponse.Location.Name, StringFormat='🏠︎ {0}'}"/>
+        <TextBlock Grid.Row="5" 
                    Text="{Binding RealtimeResponse.Location.Localtime, StringFormat='🗓 {0}'}"/>
     </Grid>
 </UserControl>

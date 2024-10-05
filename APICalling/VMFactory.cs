@@ -32,6 +32,20 @@ namespace VremenskaPrognoza.APICalling
 
         MinutChangeWatcher watcher;
 
+        private String oldValue = "Belgrade";
+        private String location = "Belgrade";
+
+        public String Location
+        {
+            get { return location; }
+            set 
+            {
+                oldValue = location;
+                location = value;
+                Task.Run(() => SendRequestAndUpdate());
+            }
+        }
+
         public ResponseViewModel Rvm { 
             get 
             { 
@@ -50,18 +64,19 @@ namespace VremenskaPrognoza.APICalling
 
         private async Task SendRequestAndUpdate()
         {
+            String response;
             try
             {
-                String response = await ApiClient.SendGetRequestAsync
-                    (ApiClient.BaseRealtimeUrl, apiKey, "Belgrade", "en");
+                response = await ApiClient.SendGetRequestAsync
+                    (ApiClient.BaseRealtimeUrl, apiKey, location, "en");
                 updateRealtimeWeatherState(response);
                 response = await ApiClient.SendGetRequestAsync
-                    (ApiClient.BaseAstronomyUrl, apiKey, "Belgrade", "en");
+                    (ApiClient.BaseAstronomyUrl, apiKey, location, "en");
                 updateAstronomyState(response);
             }
             catch (HttpRequestException ex)
             {
-                MessageBox.Show($"API error {ex.Message}");             
+                MessageBox.Show($"API error {ex.Message}\n {ex.HResult}");                
             }
         }
 
@@ -94,6 +109,7 @@ namespace VremenskaPrognoza.APICalling
                 }
                 catch (InvalidOperationException ex)
                 {
+                    location = oldValue;
                     MessageBox.Show(ex.Message);
                 }
             }

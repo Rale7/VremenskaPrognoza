@@ -147,7 +147,7 @@ namespace VremenskaPrognoza.View.UserControls
             {
                 Text = $"{percentage * 100}%",
                 Foreground = Brushes.Black,
-                FontSize = 30,
+                FontSize = 27,
                 FontWeight = FontWeights.Bold,
             };
 
@@ -155,7 +155,7 @@ namespace VremenskaPrognoza.View.UserControls
             Size textSize = textBlock.DesiredSize;
 
             Canvas.SetTop(textBlock, 0.65 * height - textSize.Height);
-            Canvas.SetLeft(textBlock, width / 2 - textSize.Width / 2);
+            Canvas.SetLeft(textBlock, width / 2 - textSize.Width * 0.5);
 
             rainDrop.Children.Add(textBlock);
         }

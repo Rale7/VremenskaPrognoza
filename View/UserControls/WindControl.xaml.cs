@@ -119,14 +119,14 @@ namespace VremenskaPrognoza.View.UserControls
         {            
             double radians = Math.PI * degrees / 180;
 
-            double x1 = centerX - Math.Cos(radians) * (circleRadius - circleTickness);
-            double y1 = centerY + Math.Sin(radians) * (circleRadius - circleTickness);
+            double y1 = centerY - Math.Cos(radians) * (circleRadius - circleTickness);
+            double x1 = centerX + Math.Sin(radians) * (circleRadius - circleTickness);
 
-            double x2 = centerX - Math.Cos(radians + Math.PI / 2) * circleRadius * sideScale;
-            double y2 = centerY + Math.Sin(radians + Math.PI / 2) * circleRadius * sideScale;
+            double y2 = centerY - Math.Cos(radians + Math.PI / 2) * circleRadius * sideScale;
+            double x2 = centerX + Math.Sin(radians + Math.PI / 2) * circleRadius * sideScale;
 
-            double x3 = centerX - Math.Cos(radians - Math.PI / 2) * circleRadius * sideScale;
-            double y3 = centerY + Math.Sin(radians - Math.PI / 2) * circleRadius * sideScale;
+            double y3 = centerY - Math.Cos(radians - Math.PI / 2) * circleRadius * sideScale;
+            double x3 = centerX + Math.Sin(radians - Math.PI / 2) * circleRadius * sideScale;
 
             Point[] points = new Point[]
             {
