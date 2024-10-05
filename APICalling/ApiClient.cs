@@ -1,6 +1,8 @@
 ﻿using System.Net.Http;
 using System.Web;
 using System.Windows;
+using System.Xml.Serialization;
+using VremenskaPrognoza.Model;
 
 namespace VremenskaPrognoza.APICalling
 {
@@ -12,7 +14,7 @@ namespace VremenskaPrognoza.APICalling
         private const String LANGUAGE = "lang";
         private const String AIR_QUALITY = "aqi";
         public const String BaseRealtimeUrl = "http://api.weatherapi.com/v1/current.xml";
-        public const String BaseAstronomyUrl = "http://api.weatherapi.com/v1/astronomy.xml";
+        public const String BaseAstronomyUrl = "http://api.weatherapi.com/v1/astronomy.xml";        
 
         static ApiClient() 
         {
@@ -34,13 +36,20 @@ namespace VremenskaPrognoza.APICalling
             query[AIR_QUALITY] = "yes";
 
             builder.Query = query.ToString();
-            string urlWithParams = builder.ToString();            
+            string urlWithParams = builder.ToString();
 
             // sending http GET request and returning response
             HttpResponseMessage response = await client.GetAsync(urlWithParams);
-            response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
-            return responseBody;
-        }        
+
+            if (response.IsSuccessStatusCode)
+            {
+                return responseBody;
+            }
+            else
+            {
+                throw new RequestError(responseBody);                
+            }
+        }
     }
 }

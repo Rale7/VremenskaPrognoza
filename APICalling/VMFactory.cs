@@ -74,9 +74,11 @@ namespace VremenskaPrognoza.APICalling
                     (ApiClient.BaseAstronomyUrl, apiKey, location, "en");
                 updateAstronomyState(response);
             }
-            catch (HttpRequestException ex)
+            catch (RequestError ex)
             {
-                MessageBox.Show($"API error {ex.Message}\n {ex.HResult}");                
+                location = oldValue;
+                
+                MessageBox.Show($"API error {ex.MyErrorInfo.ErrorCode}\n{ex.MyErrorInfo.ErrorMessage}");                
             }
         }
 
@@ -108,8 +110,7 @@ namespace VremenskaPrognoza.APICalling
                     Rvm.AstronomyResponse = result;
                 }
                 catch (InvalidOperationException ex)
-                {
-                    location = oldValue;
+                {                    
                     MessageBox.Show(ex.Message);
                 }
             }
