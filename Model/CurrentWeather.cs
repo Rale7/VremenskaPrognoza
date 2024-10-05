@@ -96,5 +96,8 @@ namespace VremenskaPrognoza.Model
         [XmlElement("gust_kph")]
         public double GustKph { get; set; }
 
+        [XmlElement("air_quality")]
+        public AirQuality AirQuality { get; set; }
+
     }
 }

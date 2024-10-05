@@ -67,7 +67,9 @@
                 <Border Grid.Column="4">
                     <userControls:SunControl/>
                 </Border>
-                <Border Grid.Row="2"></Border>
+                <Border Grid.Row="2">
+                    <userControls:AirQualityControl/>
+                </Border>
                 <Border Grid.Row="2" Grid.Column="2">
                     <userControls:HumidityControl/>
                 </Border>

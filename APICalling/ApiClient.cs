@@ -9,7 +9,8 @@ namespace VremenskaPrognoza.APICalling
         private static readonly HttpClient client = new HttpClient();
         private const String APIKEY = "key";
         private const String LOCATION = "q";
-        private const String LANGUAGE = "lang";        
+        private const String LANGUAGE = "lang";
+        private const String AIR_QUALITY = "aqi";
         public const String BaseRealtimeUrl = "http://api.weatherapi.com/v1/current.xml";
         public const String BaseAstronomyUrl = "http://api.weatherapi.com/v1/astronomy.xml";
 
@@ -29,7 +30,8 @@ namespace VremenskaPrognoza.APICalling
             var query = HttpUtility.ParseQueryString(builder.ToString());
             query[APIKEY] = key;
             query[LOCATION] = location;
-            query[LANGUAGE] = lang;            
+            query[LANGUAGE] = lang;
+            query[AIR_QUALITY] = "yes";
 
             builder.Query = query.ToString();
             string urlWithParams = builder.ToString();            

@@ -84,7 +84,7 @@ namespace VremenskaPrognoza.View.UserControls
             DrawRectangle(startPoint, height1, 
                 new SolidColorBrush(Color.FromRgb(96, 106, 113)));
             DrawRectangle(startPoint + height1, height2, 
-                Brushes.White);
+                new SolidColorBrush(Color.FromRgb(228, 232, 234)));
         }
 
         public Polygon DrawTriangle()
@@ -147,7 +147,8 @@ namespace VremenskaPrognoza.View.UserControls
             {
                 Text = $"{percentage * 100}%",
                 Foreground = Brushes.Black,
-                FontSize = 30
+                FontSize = 30,
+                FontWeight = FontWeights.Bold,
             };
 
             textBlock.Measure(new Size(width, height));
