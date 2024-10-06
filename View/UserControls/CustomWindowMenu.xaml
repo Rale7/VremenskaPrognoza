@@ -33,6 +33,14 @@
         </Style>
     </UserControl.Resources>
     <Grid>
+        <StackPanel Orientation="Horizontal"
+                    Margin="5">
+            <TextBlock Text="WeatherApp" 
+                   Foreground="White"
+                   VerticalAlignment="Center"                   
+                   FontSize="15"
+                   FontFamily="Verdana"/>
+        </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
             <Button x:Name="minimize" 
                     Content="➖"

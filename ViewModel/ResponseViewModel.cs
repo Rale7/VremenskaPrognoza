@@ -11,7 +11,7 @@ namespace VremenskaPrognoza.ViewModel
 {
     public class ResponseViewModel : ViewModelBase
     {        
-        public delegate void AdditionalChangeAction();
+        public delegate Task AdditionalChangeAction();
 
         public AdditionalChangeAction AdditionalRealtimeAction { get; set; }
 

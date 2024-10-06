@@ -43,7 +43,7 @@ namespace VremenskaPrognoza.View.UserControls
             RepaintChart();
         }
 
-        public void RepaintChart()
+        public async Task RepaintChart()
         {
             hcp.RecalculateDimensions();
 

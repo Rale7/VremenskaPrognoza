@@ -32,9 +32,9 @@ namespace VremenskaPrognoza.View.UserControls
             DataContext = rvm;
             rvm.AdditionalRealtimeAction += DrawScale;
 
-        }
+        }        
 
-        public void DrawScale()
+        public async Task DrawScale()
         {
 
             airQualityScale.Children.Clear();

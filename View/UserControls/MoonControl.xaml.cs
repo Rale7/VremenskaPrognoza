@@ -43,7 +43,7 @@ namespace VremenskaPrognoza.View.UserControls
             rvm.AdditionalAstronomyAction += DrawMoon;
         }
 
-        public void DrawMoon()
+        public async Task DrawMoon()
         {
             moonCanvas.Children.Clear();
             try

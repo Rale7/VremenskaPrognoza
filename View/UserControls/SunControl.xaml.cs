@@ -39,7 +39,7 @@ namespace VremenskaPrognoza.View.UserControls
             
         }
 
-        public void DrawSunGraph()
+        public async Task DrawSunGraph()
         {
             hcp.RecalculateDimensions();
 
@@ -48,8 +48,9 @@ namespace VremenskaPrognoza.View.UserControls
             try
             {                
                 TimeOnly sunrise = TimeOnly.Parse(rvm.AstronomyResponse.Astronomy.Astro.Sunrise);
-                TimeOnly sunset = TimeOnly.Parse(rvm.AstronomyResponse.Astronomy.Astro.Sunset);
-                TimeOnly currentTime = TimeOnly.FromDateTime(DateTime.Now);
+                TimeOnly sunset = TimeOnly.Parse(rvm.AstronomyResponse.Astronomy.Astro.Sunset);                
+                TimeOnly currentTime = TimeOnly.FromDateTime(
+                    DateTime.Parse(rvm.AstronomyResponse.Location.Localtime));
                 
                 if (currentTime > sunrise && currentTime < sunset)
                 {                    

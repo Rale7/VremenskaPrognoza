@@ -43,7 +43,7 @@ namespace VremenskaPrognoza.View.UserControls
             rvm.AdditionalRealtimeAction += DrawWindCompas;
         }
 
-        public void DrawWindCompas()
+        public async Task DrawWindCompas()
         {
             windCompas.Children.Clear();
 

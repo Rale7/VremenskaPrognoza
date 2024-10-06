@@ -160,7 +160,7 @@ namespace VremenskaPrognoza.View.UserControls
             rainDrop.Children.Add(textBlock);
         }
 
-        public void DrawRaindrop()
+        public async Task DrawRaindrop()
         {
             RecalculateDimensions();
             DrawPercentage(percentage);            
