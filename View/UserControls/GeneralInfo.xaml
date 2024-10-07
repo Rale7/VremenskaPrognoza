@@ -27,8 +27,7 @@
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
         <local:ChangeLocation/>
-        <Image Grid.Row="1" Width="100" HorizontalAlignment="Left"
-                Source="{Binding RealtimeResponse.CurrentWeather.CurrentCondition.Icon}"/>
+        <local:WeatherIcon Grid.Row="1"/>
         <TextBlock Grid.Row="2" FontSize="40">
             <Run Text="{Binding RealtimeResponse.CurrentWeather.CelsiusTemperature}"/>
             <Run Text="°C" BaselineAlignment="Top"/>
