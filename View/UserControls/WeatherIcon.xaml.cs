@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using VremenskaPrognoza.View.IconDrawers;
+using VremenskaPrognoza.View.IconDrawers.Common;
+using VremenskaPrognoza.View.IconDrawers.Day;
 
 namespace VremenskaPrognoza.View.UserControls
 {

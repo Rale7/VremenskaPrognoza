@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace VremenskaPrognoza.View.IconDrawers
+namespace VremenskaPrognoza.View.IconDrawers.Day
 {
     class SunnyIconPainter : IconPainter
     {
@@ -18,6 +18,7 @@ namespace VremenskaPrognoza.View.IconDrawers
 
         public override void Paint()
         {
+            canvasIconPainter.RecalculateDimensions();
             canvasIconPainter.DrawSunIcon(0.4, outPart, 0.5, 0.5);
 
             outPart += increment;

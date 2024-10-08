@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
-namespace VremenskaPrognoza.View.IconDrawers
+namespace VremenskaPrognoza.View.IconDrawers.Day
 {
     public class NightClearIcon : IconPainter
     {
@@ -21,6 +21,7 @@ namespace VremenskaPrognoza.View.IconDrawers
 
         public override void Paint()
         {
+            canvasIconPainter.RecalculateDimensions();
             canvasIconPainter.DrawMoonIcon(0.4, 0.75, 0.25, 45);
             canvasIconPainter.DrawStar(outPartBig, 0.7, 0.45);
             canvasIconPainter.DrawStar(outPartSmall, 0.6, 0.3);
