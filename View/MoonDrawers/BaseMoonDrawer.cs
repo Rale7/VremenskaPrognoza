@@ -100,7 +100,7 @@ namespace VremenskaPrognoza.View.MoonDrawers
         {
             if (percentage < 50)
             {
-                if (phase == "New Moon" || phase == "Waxing Crescent")
+                if (phase == "New Moon" || phase == "Waxing Crescent" || phase == "First Quarter")
                 {
                     return MoonDrawerIndex.FIRST;
                 }
@@ -111,7 +111,7 @@ namespace VremenskaPrognoza.View.MoonDrawers
             }
             else if (percentage > 50)
             {
-                if (phase == "First Quarter" || phase == "Waxing Gibbous")
+                if (phase == "First Quarter" || phase == "Waxing Gibbous" || phase == "Full Moon")
                 {
                     return MoonDrawerIndex.SECOND;
                 } else
