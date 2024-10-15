@@ -41,6 +41,7 @@ namespace VremenskaPrognoza.View.UserControls
 
         public async Task DrawSunGraph()
         {
+            hcp.ClearCanvas();
             hcp.RecalculateDimensions();
 
             hcp.DrawHalfCircle(1, Brushes.Gray, 100);

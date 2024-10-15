@@ -21,17 +21,14 @@ namespace VremenskaPrognoza.View.UserControls
     
     public partial class WeatherIcon : UserControl
     {
-        private CanvasIconPainter canvasIconPainter;
-        
-        private IconPainter iconPainter;
-
+        private IconDrawerFactory iconDrawerFactory;
         private Thread repainter;
 
         public WeatherIcon()
         {
             InitializeComponent();
-            canvasIconPainter = new CanvasIconPainter(icon);
-            iconPainter = new NightClearIcon(canvasIconPainter);
+
+            iconDrawerFactory = new IconDrawerFactory(icon);
 
             repainter = new Thread(run);
             repainter.IsBackground = true;
@@ -43,7 +40,7 @@ namespace VremenskaPrognoza.View.UserControls
         {
             while (true) {
                 Dispatcher.BeginInvoke(() => {
-                    iconPainter.Paint();
+                    iconDrawerFactory.GetIconPainter(119, true).RecalculateAndPaint();                                        
                 });
                 Thread.Sleep(50);
             }

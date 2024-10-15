@@ -45,6 +45,7 @@ namespace VremenskaPrognoza.View.UserControls
 
         public async Task RepaintChart()
         {
+            hcp.ClearCanvas();
             hcp.RecalculateDimensions();
 
             double chartPercentage;

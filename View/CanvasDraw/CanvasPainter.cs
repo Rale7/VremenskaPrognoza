@@ -20,10 +20,13 @@ namespace VremenskaPrognoza.View.CanvasDraw
             MyCanvas = canvas;
         }
 
-        public void RecalculateDimensions()
+        public void ClearCanvas()
         {
             MyCanvas.Children.Clear();
+        }
 
+        public void RecalculateDimensions()
+        {            
             CanvasWidth = MyCanvas.ActualWidth;
             CanvasHeight = MyCanvas.ActualHeight;
 
