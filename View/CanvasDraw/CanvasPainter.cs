@@ -124,5 +124,32 @@ namespace VremenskaPrognoza.View.CanvasDraw
 
             MyCanvas.Children.Add(circle);
         }
+
+        public void DrawRectangle(double positionX,
+            double positionY,
+            double width,
+            double height,
+            Brush fill,
+            Brush stroke,
+            int borderRadiusX = 0,
+            int borderRadiusY = 0
+            )
+        {
+            Rectangle rect = new Rectangle
+            {
+                Width = width,
+                Height = height,
+                Fill = fill,
+                Stroke = stroke,
+                RadiusX = borderRadiusX,
+                RadiusY = borderRadiusY
+            };
+
+            Canvas.SetLeft(rect, positionX);
+            Canvas.SetTop(rect, positionY);
+
+            MyCanvas.Children.Add(rect);
+
+        }
     }
 }

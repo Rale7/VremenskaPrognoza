@@ -13,6 +13,7 @@ namespace VremenskaPrognoza.View.IconDrawers
         public const int CLEAR_SKY = 113;
         public const int PARTY_CLOUDY = 116;
         public const int CLOUDY = 119;
+        public const int MIST = 143;
 
         private Dictionary<(int, bool), IconPainter> allIcons =
             new Dictionary<(int, bool), IconPainter>();
@@ -46,6 +47,14 @@ namespace VremenskaPrognoza.View.IconDrawers
 
             allIcons[(CLOUDY, true)] = allIcons[(CLOUDY, false)] = 
                 new CloudIcon(scale: 0.3, x: 0.5, y: 0.5, canvas: canvas);
+
+            allIcons[(MIST, true)] = allIcons[(MIST, false)] = new CloudIcon(
+                next: new MistIcon(
+                    next: new MistIcon(x: 0.2, y: 0.85, width: 0.65, height: 0.05, canvas: canvas),
+                    x: 0.2, y: 0.95, width: 0.65, height: 0.05, canvas: canvas, negativeIncrement: true
+                    ),
+                scale: 0.3, x: 0.5, y: 0.5, canvas: canvas
+                );
 
             
         }
