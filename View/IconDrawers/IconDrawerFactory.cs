@@ -52,29 +52,6 @@ namespace VremenskaPrognoza.View.IconDrawers
 
             allIcons[(MIST, true)] = allIcons[(MIST, false)] = new CloudIcon(
                 next: new MistIcon(
-                    x: 0.2, y: 0.85, width: 0.65, height: 0.05, canvas: canvas
-                    ),
-                scale: 0.3, x: 0.5, y: 0.5, canvas: canvas
-                );
-
-            allIcons[(PATCHY_RAIN_POSSIBLE, true)] = new RainIcon(
-                next: new CloudIcon(
-                    next: new SunIcon(scale: 0.28, x: 0.6, y: 0.4, canvas: canvas),
-                    scale: 0.3, x: 0.4, y: 0.5, canvas: canvas),
-                canvas: canvas, x: 0.2, y: 0.7, width: 0.4, height: 0.4
-                );
-
-            allIcons[(PATCHY_RAIN_POSSIBLE, false)] = new RainIcon(
-                next: new CloudIcon(
-                    next: new MoonIcon(scale: 0.28, x: 0.85, y: 0.15, canvas: canvas),
-                    scale: 0.3, x: 0.4, y: 0.5, canvas: canvas),
-                canvas: canvas, x: 0.2, y: 0.7, width: 0.4, height: 0.4
-                );
-
-
-
-            allIcons[(FOG, true)] = allIcons[(FOG, false)] = new CloudIcon(
-                next: new MistIcon(
                     next: new MistIcon(x: 0.2, y: 0.85, width: 0.65, height: 0.05, canvas: canvas),
                     x: 0.2, y: 0.95, width: 0.65, height: 0.05, canvas: canvas, negativeIncrement: true
                     ),
