@@ -13,13 +13,16 @@ namespace VremenskaPrognoza.View.IconDrawers.Common
     public class RainIcon : IconPainter
     {
 
-        private readonly Brush RAIN_COLOR = new SolidColorBrush(Color.FromRgb(197, 226, 247));
+        protected virtual Brush COLOR
+        {
+            get => new SolidColorBrush(Color.FromRgb(197, 226, 247));
+        }
         private const int NUM_OF_RAINDROPS = 3;
 
-        private double x, y;
-        private double height, width;
-        private double rainDropHeight;
-        private double increment;
+        protected double x, y;
+        protected double height, width;
+        protected double rainDropHeight;
+        protected double increment;
 
         private class RainDrop
         {
@@ -54,7 +57,7 @@ namespace VremenskaPrognoza.View.IconDrawers.Common
 
         protected override void MyPaint()
         {
-            DrawRainLines();    
+            DrawDrops();    
             
             foreach (RainDrop drop in drops)
             {
@@ -67,7 +70,7 @@ namespace VremenskaPrognoza.View.IconDrawers.Common
             }
         }
 
-        protected void DrawRainLines()
+        protected void DrawDrops()
         {
             GeometryGroup lines = new GeometryGroup();
 
@@ -76,23 +79,14 @@ namespace VremenskaPrognoza.View.IconDrawers.Common
             
             foreach (var drop in drops)
             {
-                lines.Children.Add(new RectangleGeometry {
-                    Rect = new Rect
-                    {
-                        X = drop.X1 * CanvasWidth,
-                        Y = drop.Y1 * CanvasHeight,
-                        Width = 5,
-                        Height = rainDropHeight * CanvasHeight,
-                    },
-                    RadiusX = 5,
-                    RadiusY = 5,
-                });                            
+                lines.Children.Add(DropGeometry(drop.X1, drop.Y1));                           
             }
 
             Path linesPath = new Path
             {
-                Stroke = RAIN_COLOR,
-                Fill = RAIN_COLOR,
+                Stroke = COLOR,
+                Fill = COLOR,
+                StrokeThickness = 1,
                 Data = lines
             };
 
@@ -109,6 +103,21 @@ namespace VremenskaPrognoza.View.IconDrawers.Common
             linesPath.OpacityMask = opacityMask;
 
             MyCanvas.Children.Add(linesPath);       
+        }
+
+        protected virtual Geometry DropGeometry(double x, double y)
+        {
+            return new RectangleGeometry {
+                    Rect = new Rect
+                    {
+                        X = x * CanvasWidth,
+                        Y = y * CanvasHeight,
+                        Width = 5,
+                        Height = rainDropHeight * CanvasHeight,
+                    },
+                    RadiusX = 5,
+                    RadiusY = 5,
+                };
         }
     }
 }

@@ -15,6 +15,7 @@ namespace VremenskaPrognoza.View.IconDrawers
         public const int CLOUDY = 119;
         public const int MIST = 143;
         public const int PATCHY_RAIN_POSSIBLE = 176;
+        public const int PATCHY_SNOW_POSSIBLE = 179;
         public const int FOG = 248;
 
         private Dictionary<(int, bool), IconPainter> allIcons =
@@ -71,6 +72,22 @@ namespace VremenskaPrognoza.View.IconDrawers
                     scale: 0.3, x: 0.4, y: 0.5, canvas: canvas),
                 canvas: canvas, x: 0.2, y: 0.7, width: 0.4, height: 0.4
                 );
+
+            allIcons[(PATCHY_SNOW_POSSIBLE, true)] = new SnowIcon(
+               next: new CloudIcon(
+                   next: new SunIcon(scale: 0.28, x: 0.6, y: 0.4, canvas: canvas),
+                   scale: 0.3, x: 0.4, y: 0.5, canvas: canvas),
+               canvas: canvas, x: 0.2, y: 0.7, width: 0.4, height: 0.4
+               );
+
+            allIcons[(PATCHY_SNOW_POSSIBLE, false)] = new SnowIcon(
+                next: new CloudIcon(
+                    next: new MoonIcon(scale: 0.28, x: 0.85, y: 0.15, canvas: canvas),
+                    scale: 0.3, x: 0.4, y: 0.5, canvas: canvas),
+                canvas: canvas, x: 0.2, y: 0.7, width: 0.4, height: 0.4
+                );
+
+
 
             allIcons[(FOG, true)] = allIcons[(FOG, false)] = new CloudIcon(
                 next: new MistIcon(
