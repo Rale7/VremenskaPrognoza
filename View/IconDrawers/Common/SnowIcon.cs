@@ -10,7 +10,7 @@ using System.Windows.Media;
 
 namespace VremenskaPrognoza.View.IconDrawers.Common
 {
-    public class SnowIcon : RainIcon
+    public class SnowIcon : DropIcon
     {
         private int NUM_OF_LINES = 3;
 
