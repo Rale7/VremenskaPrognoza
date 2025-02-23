@@ -40,7 +40,7 @@ namespace VremenskaPrognoza.View.UserControls
         {
             while (true) {
                 Dispatcher.BeginInvoke(() => {
-                    iconDrawerFactory.GetIconPainter(176, false).RecalculateAndPaint();                                        
+                    iconDrawerFactory.GetIconPainter(266, true).RecalculateAndPaint();                                        
                 });
                 Thread.Sleep(50);
             }

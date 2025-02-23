@@ -14,7 +14,8 @@ namespace VremenskaPrognoza.View.IconDrawers.Common
     {
         protected override Brush COLOR => new SolidColorBrush(Color.FromRgb(197, 226, 247));
     
-        public RainIcon(Canvas canvas, double x, double y, double width, double height, IconPainter? next = null) : base(canvas, x, y, width, height, next)
+        public RainIcon(Canvas canvas, double x, double y, double width, double height, 
+            double offset = 0, IconPainter? next = null) : base(canvas, x, y, width, height, offset, next)
         {
         }
 
@@ -26,7 +27,7 @@ namespace VremenskaPrognoza.View.IconDrawers.Common
                         X = x * CanvasWidth,
                         Y = y * CanvasHeight,
                         Width = 5,
-                        Height = rainDropHeight * CanvasHeight,
+                        Height = dropHeight * CanvasHeight,
                     },
                     RadiusX = 5,
                     RadiusY = 5,

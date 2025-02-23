@@ -20,7 +20,8 @@ namespace VremenskaPrognoza.View.IconDrawers.Common
 
         protected override Brush COLOR => Brushes.White;
 
-        public SnowIcon(Canvas canvas, double x, double y, double width, double height, IconPainter? next = null) : base(canvas, x, y, width, height, next)
+        public SnowIcon(Canvas canvas, double x, double y, double width, double height,
+            double offset = 0, IconPainter? next = null) : base(canvas, x, y, width, height, offset, next)
         {
         }
 

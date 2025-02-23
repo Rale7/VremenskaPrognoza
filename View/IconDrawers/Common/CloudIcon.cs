@@ -12,6 +12,11 @@ namespace VremenskaPrognoza.View.IconDrawers.Common
         private double x;
         private double y;
 
+        protected virtual Brush COLOR
+        {
+            get => Brushes.White;
+        }
+
         public CloudIcon(Canvas canvas, double scale,
             double x, double y, IconPainter? next = null) : base(canvas, next)
         {
@@ -39,14 +44,14 @@ namespace VremenskaPrognoza.View.IconDrawers.Common
             double centerX3 = centerX1 + radius1;
             double centerY3 = centerY1 + radius1 - radius3;
 
-            DrawCircle(centerX1, centerY1, radius1, Brushes.White, Brushes.Transparent);
-            DrawCircle(centerX2, centerY2, radius2, Brushes.White, Brushes.Transparent);
-            DrawCircle(centerX3, centerY3, radius3, Brushes.White, Brushes.Transparent);
+            DrawCircle(centerX1, centerY1, radius1, COLOR, Brushes.Transparent);
+            DrawCircle(centerX2, centerY2, radius2, COLOR, Brushes.Transparent);
+            DrawCircle(centerX3, centerY3, radius3, COLOR, Brushes.Transparent);
             
             Rectangle rect = new Rectangle() {
                 Width = 2 * radius1,
                 Height = radius2,
-                Fill = Brushes.White
+                Fill = COLOR
             };
 
             Canvas.SetLeft(rect, centerX2);

@@ -21,7 +21,7 @@ namespace VremenskaPrognoza.View.IconDrawers.Common
 
         protected double x, y;
         protected double height, width;
-        protected double rainDropHeight;
+        protected double dropHeight;
         protected double increment;
 
         private class Drop
@@ -33,15 +33,15 @@ namespace VremenskaPrognoza.View.IconDrawers.Common
         private LinkedList<Drop> drops = new LinkedList<Drop>();
 
         public DropIcon(Canvas canvas, double x, double y,
-            double width, double height, IconPainter? next = null) : base(canvas, next)
+            double width, double height, double offset = 0, IconPainter? next = null) : base(canvas, next)
         {
             this.x = x;
             this.y = y;
             this.height = height;
             this.width = width;
 
-            rainDropHeight = height / 4;
-            double rainDropPosition = width / 2;
+            dropHeight = height / 4;
+            double dropPosition = width / 2;
 
             increment = height * 0.03;
 
@@ -49,8 +49,8 @@ namespace VremenskaPrognoza.View.IconDrawers.Common
             {
                 drops.AddLast(new Drop
                 {
-                    X1 = x + i * rainDropPosition,
-                    Y1 = y + i * rainDropHeight,
+                    X1 = x + i * dropPosition,
+                    Y1 = y + i * dropHeight + offset,
                 });
             }
         }
@@ -75,7 +75,7 @@ namespace VremenskaPrognoza.View.IconDrawers.Common
             GeometryGroup lines = new GeometryGroup();
 
             lines.Children.Add(new RectangleGeometry(new Rect(x * CanvasWidth, y * CanvasHeight, 0, 0)));
-            lines.Children.Add(new RectangleGeometry(new Rect((x + width) * CanvasWidth, (y + height + rainDropHeight) * CanvasHeight, 0, 0)));
+            lines.Children.Add(new RectangleGeometry(new Rect((x + width) * CanvasWidth, (y + height + dropHeight) * CanvasHeight, 0, 0)));
             
             foreach (var drop in drops)
             {
