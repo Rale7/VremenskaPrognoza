@@ -35,7 +35,7 @@ namespace VremenskaPrognoza.View.IconDrawers.Common
                 cnt = 0;
             }
 
-            if (cnt < 30 || (cnt / 2) % 2 == 1)
+            if (!(cnt < 30 || (cnt / 2) % 2 == 1))
             {
                 DrawThunder(); 
             }
