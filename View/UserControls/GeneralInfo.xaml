@@ -20,24 +20,24 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="40*"/>
-            <RowDefinition Height="20*"/>
+            <RowDefinition Height="40*"/>
             <RowDefinition Height="10*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="5*"/>
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
         <local:ChangeLocation/>
         <local:WeatherIcon Grid.Row="1"/>
-        <TextBlock Grid.Row="2" FontSize="40">
-            <Run Text="{Binding RealtimeResponse.CurrentWeather.CelsiusTemperature}"/>
-            <Run Text="°C" BaselineAlignment="Top"/>
+        <TextBlock Grid.Row="2">
+            <Run Text="{Binding RealtimeResponse.CurrentWeather.CelsiusTemperature}" FontSize="40"/>
+            <Run Text="°C" BaselineAlignment="Top" FontSize="40"/>
+            <LineBreak/>
+            <LineBreak/>
+            <Run Text="{Binding RealtimeResponse.CurrentWeather.CurrentCondition.Text}" FontSize="25"/>
         </TextBlock>
-        <TextBlock Grid.Row="3" 
-                   Text="{Binding RealtimeResponse.CurrentWeather.CurrentCondition.Text}" 
-                   FontSize="16"/>
-        <TextBlock Grid.Row="4" 
-                   Text="{Binding RealtimeResponse.Location.Name, StringFormat='🏠︎ {0}'}"/>
-        <TextBlock Grid.Row="5" 
-                   Text="{Binding RealtimeResponse.Location.Localtime, StringFormat='🗓 {0}'}"/>
+        <TextBlock Grid.Row="3"> 
+            <Run Text="{Binding RealtimeResponse.Location.Name, StringFormat='🏠︎ {0}'}"/>
+            <LineBreak/>
+            <LineBreak/>
+            <Run Text="{Binding RealtimeResponse.Location.Localtime, StringFormat='🗓 {0}'}"/>
+        </TextBlock>
     </Grid>
 </UserControl>

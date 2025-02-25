@@ -49,7 +49,8 @@
         </Grid.ColumnDefinitions>
         <Border CornerRadius="10"
                 Background="#22252a"
-                Margin="5">
+                Margin="5"
+                Height="35">
             <Grid>
                 <TextBlock Text="Search"
                            Name="placeholder"
