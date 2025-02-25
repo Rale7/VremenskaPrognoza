@@ -91,17 +91,14 @@ namespace VremenskaPrognoza.View.IconDrawers
             );
 
             allIcons[(CLOUDY, true)] = allIcons[(CLOUDY, false)] = 
-                new CloudIcon(scale: 0.3, x: 0.5, y: 0.5, canvas: canvas);
+                new CloudIcon(scale: 0.3, x: 0.46, y: 0.5, canvas: canvas);
 
             allIcons[(OVERCAST, true)] = allIcons[(OVERCAST, false)] = 
-                new CloudIcon(scale: 0.3, x: 0.5, y: 0.5, canvas: canvas);
+                new CloudIcon(scale: 0.3, x: 0.46, y: 0.5, canvas: canvas);
 
             allIcons[(MIST, true)] = allIcons[(MIST, false)] = new CloudIcon(
-                next: new MistIcon(
-                    next: new MistIcon(x: 0.2, y: 0.85, width: 0.65, height: 0.05, canvas: canvas),
-                    x: 0.2, y: 0.95, width: 0.65, height: 0.05, canvas: canvas, negativeIncrement: true
-                    ),
-                scale: 0.3, x: 0.5, y: 0.5, canvas: canvas
+                next: new MistIcon(x: 0.16, y: 0.85, width: 0.65, height: 0.05, canvas: canvas),
+                scale: 0.3, x: 0.46, y: 0.5, canvas: canvas
                 );
 
             allIcons[(MODERATE_RAIN_AT_TIMES, true)] = allIcons[(LIGHT_RAIN_SHOWER, true)] =
@@ -171,76 +168,76 @@ namespace VremenskaPrognoza.View.IconDrawers
                 );
 
             allIcons[(THUNDERY_OUTBREAKS_POSSIBLE, true)] = new ThunderIcon(
-                next: new CloudIcon(
+                next: new DarkCloudIcon(
                     next: new SunIcon(scale: 0.28, x: 0.6, y: 0.4, canvas: canvas),
                     canvas: canvas, scale: 0.3, x: 0.4, y: 0.5),
                 canvas: canvas, x: 0.4, y: 0.6, width: 0.4, height: 0.4
                 ); 
 
             allIcons[(THUNDERY_OUTBREAKS_POSSIBLE, false)] = new ThunderIcon(
-                next: new CloudIcon(
+                next: new DarkCloudIcon(
                     next: new MoonIcon(scale: 0.28, x: 0.85, y: 0.15, canvas: canvas),
                     canvas: canvas, scale: 0.3, x: 0.4, y: 0.5),
                 canvas: canvas, x: 0.4, y: 0.6, width: 0.4, height: 0.4
                 );
 
             allIcons[(BLOWING_SNOW, true)] = allIcons[(BLOWING_SNOW, false)] = new SnowIcon(
-                next: new CloudIcon(canvas: canvas, scale: 0.3, x: 0.4, y: 0.5),
-                canvas: canvas, x: 0.2, y: 0.7, width: 0.4, height: 0.4
+                next: new CloudIcon(canvas: canvas, scale: 0.3, x: 0.46, y: 0.5),
+                canvas: canvas, x: 0.26, y: 0.7, width: 0.4, height: 0.4
                 );
 
             allIcons[(BLIZZARD, true)] = allIcons[(BLIZZARD, false)] = new SnowIcon(
                 next: new SnowIcon(
-                    next: new CloudIcon(scale: 0.3, x: 0.4, y: 0.5, canvas: canvas),
-                    canvas: canvas, x: 0.275, y: 0.7, width: 0.35, height: 0.4, offset: 0.2),
-                canvas: canvas, x: 0.2, y: 0.7, width: 0.35, height: 0.4
+                    next: new CloudIcon(scale: 0.3, x: 0.46, y: 0.5, canvas: canvas),
+                    canvas: canvas, x: 0.325, y: 0.7, width: 0.35, height: 0.4, offset: 0.2),
+                canvas: canvas, x: 0.26, y: 0.7, width: 0.35, height: 0.4
                 );
 
 
             allIcons[(FOG, true)] = allIcons[(FOG, false)] = new CloudIcon(
                 next: new MistIcon(
-                    next: new MistIcon(x: 0.2, y: 0.85, width: 0.65, height: 0.05, canvas: canvas),
-                    x: 0.2, y: 0.95, width: 0.65, height: 0.05, canvas: canvas, negativeIncrement: true),
-                scale: 0.3, x: 0.5, y: 0.5, canvas: canvas
+                    next: new MistIcon(x: 0.16, y: 0.85, width: 0.65, height: 0.05, canvas: canvas),
+                    x: 0.16, y: 0.95, width: 0.65, height: 0.05, canvas: canvas, negativeIncrement: true),
+                scale: 0.3, x: 0.46, y: 0.5, canvas: canvas
                 );
 
             allIcons[(FREEZING_FOG, true)] = allIcons[(FREEZING_FOG, false)] = new CloudIcon(
                 next: new MistIcon(
-                    next: new MistIcon(x: 0.2, y: 0.85, width: 0.65, height: 0.05, canvas: canvas),
-                    x: 0.2, y: 0.95, width: 0.65, height: 0.05, canvas: canvas, negativeIncrement: true),
-                scale: 0.3, x: 0.5, y: 0.5, canvas: canvas
+                    next: new MistIcon(x: 0.16, y: 0.85, width: 0.65, height: 0.05, canvas: canvas),
+                    x: 0.16, y: 0.95, width: 0.65, height: 0.05, canvas: canvas, negativeIncrement: true),
+                scale: 0.3, x: 0.46, y: 0.5, canvas: canvas
                 );
 
             allIcons[(LIGHT_DRIZZLE, true)] = allIcons[(LIGHT_DRIZZLE, false)] = 
                 allIcons[(PATCHY_LIGHT_DRIZZLE, true)] = allIcons[(PATCHY_LIGHT_DRIZZLE, false)] = new RainIcon(
                 next: new RainIcon(
                     next: new RainIcon(
-                        next: new CloudIcon(scale: 0.3, x: 0.4, y: 0.5, canvas: canvas),
-                        canvas: canvas, x: 0.25, y: 0.7, width: 0.4, height: 0.3, offset: 0.2),
-                    canvas: canvas, x: 0.2, y: 0.7, width: 0.4, height: 0.3, offset: 0.1),
-                canvas: canvas, x: 0.15, y: 0.7, width: 0.4, height: 0.3
+                        next: new CloudIcon(scale: 0.3, x: 0.46, y: 0.5, canvas: canvas),
+                        canvas: canvas, x: 0.31, y: 0.7, width: 0.4, height: 0.3, offset: 0.2),
+                    canvas: canvas, x: 0.26, y: 0.7, width: 0.4, height: 0.3, offset: 0.1),
+                canvas: canvas, x: 0.21, y: 0.7, width: 0.4, height: 0.3
                 );
 
             allIcons[(FREEZING_DRIZZLE, true)] = allIcons[(FREEZING_DRIZZLE, false)] = new FreezingDrizzleRainIcon(
                 next: new FreezingDrizzleRainIcon(
-                    next: new CloudIcon(scale: 0.3, x: 0.4, y: 0.5, canvas: canvas),
-                    canvas: canvas, x: 0.25, y: 0.7, width: 0.4, height: 0.3, offset: 0.2),
-                canvas: canvas, x: 0.15, y: 0.7, width: 0.4, height: 0.3
+                    next: new CloudIcon(scale: 0.3, x: 0.46, y: 0.5, canvas: canvas),
+                    canvas: canvas, x: 0.31, y: 0.7, width: 0.4, height: 0.3, offset: 0.2),
+                canvas: canvas, x: 0.21, y: 0.7, width: 0.4, height: 0.3
                 );
 
             allIcons[(HEAVY_FREEZING_DRIZZLE, true)] = allIcons[(HEAVY_FREEZING_DRIZZLE, false)] = new FreezingDrizzleRainIcon(
                 next: new FreezingDrizzleRainIcon(
                     next: new FreezingDrizzleRainIcon(
-                        next: new CloudIcon(scale: 0.3, x: 0.4, y: 0.5, canvas: canvas),
-                        canvas: canvas, x: 0.25, y: 0.7, width: 0.4, height: 0.3, offset: 0.2),
-                    canvas: canvas, x: 0.2, y: 0.7, width: 0.4, height: 0.3, offset: 0.1),
-                canvas: canvas, x: 0.15, y: 0.7, width: 0.4, height: 0.3
+                        next: new CloudIcon(scale: 0.3, x: 0.46, y: 0.5, canvas: canvas),
+                        canvas: canvas, x: 0.31, y: 0.7, width: 0.4, height: 0.3, offset: 0.2),
+                    canvas: canvas, x: 0.26, y: 0.7, width: 0.4, height: 0.3, offset: 0.1),
+                canvas: canvas, x: 0.21, y: 0.7, width: 0.4, height: 0.3
                 );
 
-            allIcons[(MODERATE_RAIN_AT_TIMES, true)] = allIcons[(MODERATE_RAIN_AT_TIMES, false)] =
+            allIcons[(MODERATE_RAIN, true)] = allIcons[(MODERATE_RAIN, false)] =
             allIcons[(LIGHT_RAIN, true)] = allIcons[(LIGHT_RAIN, false)] = new RainIcon(
-               next: new CloudIcon(scale: 0.3, x: 0.4, y: 0.5, canvas: canvas),
-               canvas: canvas, x: 0.2, y: 0.7, width: 0.4, height: 0.4
+               next: new CloudIcon(scale: 0.3, x: 0.46, y: 0.5, canvas: canvas),
+               canvas: canvas, x: 0.26, y: 0.7, width: 0.4, height: 0.4
                );
 
             allIcons[(MODERATE_OR_HEAVY_RAIN_SHOWER, true)] =
@@ -265,30 +262,30 @@ namespace VremenskaPrognoza.View.IconDrawers
 
             allIcons[(HEAVY_RAIN, true)] = allIcons[(HEAVY_RAIN, false)] = new RainIcon(
                next: new RainIcon(
-                    next: new CloudIcon(scale: 0.3, x: 0.4, y: 0.5, canvas: canvas),
-                    canvas: canvas, x: 0.15, y: 0.7, width: 0.4, height: 0.4, offset: 0.2),
-               canvas: canvas, x: 0.25, y: 0.7, width: 0.4, height: 0.4
+                    next: new CloudIcon(scale: 0.3, x: 0.46, y: 0.5, canvas: canvas),
+                    canvas: canvas, x: 0.21, y: 0.7, width: 0.4, height: 0.4, offset: 0.2),
+               canvas: canvas, x: 0.31, y: 0.7, width: 0.4, height: 0.4
                );
 
 
             allIcons[(LIGHT_FREEZING_RAIN, true)] = allIcons[(LIGHT_FREEZING_RAIN, false)] =  new FreezingDrizzleRainIcon(
-               next: new CloudIcon(scale: 0.3, x: 0.4, y: 0.5, canvas: canvas),
-               canvas: canvas, x: 0.2, y: 0.7, width: 0.4, height: 0.4
+               next: new CloudIcon(scale: 0.3, x: 0.46, y: 0.5, canvas: canvas),
+               canvas: canvas, x: 0.26, y: 0.7, width: 0.4, height: 0.4
                );
 
             allIcons[(MODERATE_OR_HEAVY_FREEZING_RAIN, true)] = 
                 allIcons[(MODERATE_OR_HEAVY_FREEZING_RAIN, false)] = new FreezingDrizzleRainIcon(
                next: new FreezingDrizzleRainIcon(
-                    next: new CloudIcon(scale: 0.3, x: 0.4, y: 0.5, canvas: canvas),
-                    canvas: canvas, x: 0.15, y: 0.7, width: 0.4, height: 0.4, offset: 0.2),
-               canvas: canvas, x: 0.25, y: 0.7, width: 0.4, height: 0.4
+                    next: new CloudIcon(scale: 0.3, x: 0.46, y: 0.5, canvas: canvas),
+                    canvas: canvas, x: 0.21, y: 0.7, width: 0.4, height: 0.4, offset: 0.2),
+               canvas: canvas, x: 0.32, y: 0.7, width: 0.4, height: 0.4
                );
 
             allIcons[(LIGHT_SLEET, true)] = allIcons[(LIGHT_SLEET, false)] = new RainIcon(
                 next: new SnowIcon(
-                    next: new CloudIcon(scale: 0.3, x: 0.4, y: 0.5, canvas: canvas),
-                    canvas: canvas, x: 0.27, y: 0.7, width: 0.35, height: 0.4, offset: 0.2),
-                canvas: canvas, x: 0.17, y: 0.7, width: 0.35, height: 0.4
+                    next: new CloudIcon(scale: 0.3, x: 0.46, y: 0.5, canvas: canvas),
+                    canvas: canvas, x: 0.33, y: 0.7, width: 0.35, height: 0.4, offset: 0.2),
+                canvas: canvas, x: 0.23, y: 0.7, width: 0.35, height: 0.4
             );
 
             allIcons[(MODERATE_OR_HEAVY_SLEET, true)] =
@@ -296,17 +293,17 @@ namespace VremenskaPrognoza.View.IconDrawers
                 next: new SnowIcon(
                     next: new RainIcon(
                         next: new SnowIcon(
-                            next: new CloudIcon(scale: 0.3, x: 0.4, y: 0.5, canvas: canvas),
-                            canvas: canvas, x: 0.46, y: 0.7, width: 0.2, height: 0.4, offset: 0.2),
-                         canvas: canvas, x: 0.41, y: 0.7, width: 0.2, height: 0.4),
-                    canvas: canvas, x: 0.21, y: 0.7, width: 0.2, height: 0.4, offset: 0.15),
-                canvas: canvas, x: 0.16, y: 0.7, width: 0.2, height: 0.4
+                            next: new CloudIcon(scale: 0.3, x: 0.46, y: 0.5, canvas: canvas),
+                            canvas: canvas, x: 0.52, y: 0.7, width: 0.2, height: 0.4, offset: 0.2),
+                         canvas: canvas, x: 0.47, y: 0.7, width: 0.2, height: 0.4),
+                    canvas: canvas, x: 0.27, y: 0.7, width: 0.2, height: 0.4, offset: 0.15),
+                canvas: canvas, x: 0.22, y: 0.7, width: 0.2, height: 0.4
             );
 
             allIcons[(MODERATE_SNOW, true)] = allIcons[(MODERATE_SNOW, false)] =
             allIcons[(LIGHT_SNOW, true)] = allIcons[(LIGHT_SNOW, false)] = new SnowIcon(
-               next: new CloudIcon(scale: 0.3, x: 0.4, y: 0.5, canvas: canvas),
-               canvas: canvas, x: 0.2, y: 0.7, width: 0.4, height: 0.4
+               next: new CloudIcon(scale: 0.3, x: 0.46, y: 0.5, canvas: canvas),
+               canvas: canvas, x: 0.26, y: 0.7, width: 0.4, height: 0.4
                );
 
             allIcons[(PATCHY_HEAVY_SNOW, true)] = new SnowIcon(
@@ -330,14 +327,14 @@ namespace VremenskaPrognoza.View.IconDrawers
 
             allIcons[(HEAVY_SNOW, false)] = allIcons[(HEAVY_SNOW, true)] = new SnowIcon(
                next: new SnowIcon(
-                    next: new CloudIcon(scale: 0.3, x: 0.4, y: 0.5, canvas: canvas),
-                    canvas: canvas, x: 0.15, y: 0.7, width: 0.4, height: 0.4, offset: 0.2),
-               canvas: canvas, x: 0.25, y: 0.7, width: 0.4, height: 0.4
+                    next: new CloudIcon(scale: 0.3, x: 0.46, y: 0.5, canvas: canvas),
+                    canvas: canvas, x: 0.21, y: 0.7, width: 0.4, height: 0.4, offset: 0.2),
+               canvas: canvas, x: 0.31, y: 0.7, width: 0.4, height: 0.4
                );
 
             allIcons[(ICE_PELLETS, true)] = allIcons[(ICE_PELLETS, false)] = new IcePelletIcon(
-               next: new CloudIcon(scale: 0.3, x: 0.4, y: 0.5, canvas: canvas),
-               canvas: canvas, x: 0.2, y: 0.7, width: 0.4, height: 0.4
+               next: new CloudIcon(scale: 0.3, x: 0.46, y: 0.5, canvas: canvas),
+               canvas: canvas, x: 0.26, y: 0.7, width: 0.4, height: 0.4
                );
 
             allIcons[(TORENTIAL_RAIN_SHOWER, true)] = new RainIcon(
@@ -456,10 +453,10 @@ namespace VremenskaPrognoza.View.IconDrawers
                 new ThunderIcon(
                     next: new RainIcon(
                        next: new RainIcon(
-                            next: new DarkCloudIcon(scale: 0.3, x: 0.4, y: 0.5, canvas: canvas),
-                            canvas: canvas, x: 0.15, y: 0.7, width: 0.4, height: 0.4, offset: 0.2),
-                       canvas: canvas, x: 0.25, y: 0.7, width: 0.4, height: 0.4),
-                canvas: canvas, x: 0.4, y: 0.6, width: 0.4, height: 0.4
+                            next: new DarkCloudIcon(scale: 0.3, x: 0.46, y: 0.5, canvas: canvas),
+                            canvas: canvas, x: 0.21, y: 0.7, width: 0.4, height: 0.4, offset: 0.2),
+                       canvas: canvas, x: 0.31, y: 0.7, width: 0.4, height: 0.4),
+                canvas: canvas, x: 0.46, y: 0.6, width: 0.4, height: 0.4
                 );
 
             allIcons[(PATCHY_LIGHT_SNOW_WITH_THUNDER, true)] = new ThunderIcon(
@@ -480,17 +477,15 @@ namespace VremenskaPrognoza.View.IconDrawers
                 canvas: canvas, x: 0.4, y: 0.6, width: 0.4, height: 0.4
                 );
 
-            allIcons[(MODERATE_OR_HEAVY_SNOW_WITH_THUNDER, false)] = allIcons[(MODERATE_OR_HEAVY_RAIN_WITH_THUNDER, true)] =
+            allIcons[(MODERATE_OR_HEAVY_SNOW_WITH_THUNDER, false)] = allIcons[(MODERATE_OR_HEAVY_SNOW_WITH_THUNDER, true)] =
                 new ThunderIcon(
                     next: new SnowIcon(
                        next: new SnowIcon(
-                            next: new DarkCloudIcon(scale: 0.3, x: 0.4, y: 0.5, canvas: canvas),
-                            canvas: canvas, x: 0.15, y: 0.7, width: 0.4, height: 0.4, offset: 0.2),
-                       canvas: canvas, x: 0.25, y: 0.7, width: 0.4, height: 0.4),
-                canvas: canvas, x: 0.4, y: 0.6, width: 0.4, height: 0.4
+                            next: new DarkCloudIcon(scale: 0.3, x: 0.46, y: 0.5, canvas: canvas),
+                            canvas: canvas, x: 0.21, y: 0.7, width: 0.4, height: 0.4, offset: 0.2),
+                       canvas: canvas, x: 0.31, y: 0.7, width: 0.4, height: 0.4),
+                canvas: canvas, x: 0.46, y: 0.6, width: 0.4, height: 0.4
                 );
-
-
 
         }
 
