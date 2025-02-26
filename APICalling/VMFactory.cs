@@ -55,7 +55,7 @@ namespace VremenskaPrognoza.APICalling
 
         private VMFactory() {            
             // loading API key
-            EnvReader.LoadEnvironmentVariables(".env");
+            DotNetEnv.Env.Load();
             apiKey = Environment.GetEnvironmentVariable("API_KEY");
 
             Task.Run(() => SendRequestAndUpdate());
