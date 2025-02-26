@@ -20,7 +20,7 @@ and animations is generated through code.
 1. **Clone the Repository**
    ```sh
    git clone https://github.com/Rale7/VremenskaPrognoza.git
-   cd weather-app
+   cd VremenskaPrognoza
    ```
 
 2. **Install Dependencies** (if needed)
