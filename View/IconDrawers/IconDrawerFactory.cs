@@ -63,8 +63,12 @@ namespace VremenskaPrognoza.View.IconDrawers
         private Dictionary<(int, bool), IconPainter> allIcons =
             new Dictionary<(int, bool), IconPainter>();
 
+        private IconPainter errorIcon;
+
         public IconDrawerFactory(Canvas canvas) {
             this.canvas = canvas;
+            
+            errorIcon = new NoIconError(canvas);
 
             // Sunny day
             allIcons[(CLEAR_SKY, true)] = new SunIcon(canvas: canvas, scale: 0.4, x: 0.5, y: 0.5);
@@ -486,11 +490,18 @@ namespace VremenskaPrognoza.View.IconDrawers
                        canvas: canvas, x: 0.31, y: 0.7, width: 0.4, height: 0.4),
                 canvas: canvas, x: 0.46, y: 0.6, width: 0.4, height: 0.4
                 );
-
+             
         }
 
         public IconPainter GetIconPainter(int code, bool isDay) {
-            return allIcons[(code, isDay)];
+            try
+            {
+                return allIcons[(code, isDay)];
+            }
+            catch (KeyNotFoundException)
+            {
+                return errorIcon;
+            }
         }
 
     }

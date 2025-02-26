@@ -34,7 +34,7 @@ namespace VremenskaPrognoza.View.IconDrawers.Common
 
             x += increment;
 
-            if (x <= 0.12 || x >= 0.18)
+            if (x <= 0.14 || x >= 0.18)
             {
                 increment = -increment;
             }
